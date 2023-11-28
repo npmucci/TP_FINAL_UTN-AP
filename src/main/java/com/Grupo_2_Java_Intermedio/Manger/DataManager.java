@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import java.util.*;
 
 @Service
@@ -41,7 +42,7 @@ public class DataManager {
         this.tecnicoService = tecnicoService;
         this.tipoProblemaService = tipoProblemaService;
     }
-    @Transactional
+
     public void inicializarDatos() {
         crearServicios();
         crearEspecialidades();
@@ -50,7 +51,7 @@ public class DataManager {
         crearTecnicos();
         crearIncidentes();
     }
-    @Transactional
+
     public void crearIncidentes() {
         List<Incidente> incidentes = new ArrayList<>();
 
@@ -119,7 +120,7 @@ public class DataManager {
         incidenteService.guardar(incidente2);
         incidenteService.guardar(incidente3);
     }
-    @Transactional
+
     public void crearTecnicos() {
         Tecnico t1 = new Tecnico();
         t1.setNombre("Juan");
@@ -170,7 +171,7 @@ public class DataManager {
         tecnicoService.guardar(t3);
 
     }
-    @Transactional
+
     public void crearTiposProblema() {
         TipoProblema p1 = new TipoProblema(1,"tipo1",3,5,especialidadService.buscarTodos());
         TipoProblema p2 = new TipoProblema(2,"tipo2",3,5,especialidadService.buscarTodos());
@@ -180,7 +181,7 @@ public class DataManager {
         p3.setId(tipoProblemaService.guardar(p3));
     }
 
-    @Transactional
+
     public void crearEspecialidades() {
         Especialidad especialidad1 = new Especialidad(1,"especialidad1","Descripcion1");
         Especialidad especialidad2 = new Especialidad(2,"especialidad2","Descripcion1");
@@ -189,7 +190,7 @@ public class DataManager {
         especialidad2.setId(especialidadService.guardar(especialidad2));
         especialidad3.setId(especialidadService.guardar(especialidad3));
     }
-    @Transactional
+
     public void crearServicios() {
         Servicio servicio1 = new Servicio(1,"servicio1","Descripcion1");
         Servicio servicio2 = new Servicio(2,"servicio2","Descripcion2");
@@ -198,7 +199,7 @@ public class DataManager {
         servicio2.setId(servicioService.guardar(servicio2));
         servicio3.setId(servicioService.guardar(servicio3));
     }
-    @Transactional
+
     public void crearClientes() {
         Cliente cliente1 = new Cliente(1,2011111118,"Alejandro Lamas","aLamas@gmail.com","Alejandro","Lamas", servicioService.buscarTodos());
         Cliente cliente2 = new Cliente(2,2022222229,"Miguel Lardo","mLardo@gmail.com","Miguel","Lardo", servicioService.buscarTodos());;
